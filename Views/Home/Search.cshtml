@@ -1,0 +1,16 @@
+﻿@model List<Google.Apis.YouTube.v3.Data.SearchResult>
+
+@foreach (var item in Model)
+{
+    @item.Snippet.Title <br />
+
+
+    <img onclick="btnPlay('@item.Id.VideoId')" class="img-responsive" src="http://img.youtube.com/vi/@item.Id.VideoId/mqdefault.jpg" alt="@item.Snippet.Title">
+    <br />
+    <button class="btn btn-default" onclick="btnAdd('@item.Id.VideoId')"> Agregar</button>
+    <br />
+
+
+
+}
+

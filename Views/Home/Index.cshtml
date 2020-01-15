@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+<div class="row">
+    <div class="col-md-4">
+
+        <p>
+            <h1>Rockola</h1>
+            <input type="text" class="form-control" id="txtkeywork" placeholder="Buscar" />
+        </p>
+        <p><a class="btn btn-default" href="javascript:void(0)" onclick="btnSearch()">Buscar &raquo;</a></p>
+    </div>
+    <br />
+    <div class="col-md-4">
+        <div class="container" id="ListYoutube">
+
+        </div>
+
+    </div>
+    <div class="col-md-4">
+        <div class="container" id="VideoYoutube">
+
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="container" id="AddVideo">
+
+        </div>
+    </div>
+</div>
+<style>
+    #ListYoutube{
+        float:left;
+
+    }
+</style>
+<script>
+    function btnSearch()
+    {
+        $.ajax(
+            {
+                url: '@Url.Action("SearchList")?Keywork=' + $('#txtkeywork').val(),
+                type: 'GET',
+                success: function (result)
+                {
+                    $('#ListYoutube').html(result);
+                }
+            });
+    }
+
+    function btnAdd(Video) {
+        $.ajax
+            (
+            {
+                    url: '@Url.Action("AddVideoPlaylist")?Video=' + Video,
+                    type: 'GET',
+                    success: function (result) {
+                        $("#AddVideo").html(result);
+                    }
+            }
+            )
+    }
+
+    function btnPlay(id) {
+        $.ajax(
+            {
+                url: '@Url.Action("VideoList")?id='+id,
+                type: 'GET',
+                success: function(result) {
+                        $("#VideoYoutube").html(result);
+                    }
+            }
+
+       );
+    }
+
+</script>
