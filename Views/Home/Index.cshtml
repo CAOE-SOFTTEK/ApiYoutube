@@ -2,43 +2,48 @@
     ViewBag.Title = "Home Page";
 }
 
-<style>
-    .col{
-        border: 1px solid blue;
-    }
-</style>
+
 
 
 
 <div class="container">
     <div class="col">
+        <div class="card text-center">
+            <div class="card-header">
+                api youtube
+            </div>
+            <div class="card-body">
+                <h1>Rockola</h1>
+                <input type="text" class="form-control" id="txtkeywork" placeholder="Buscar" />
+                <p><a class="btn btn-default" href="javascript:void(0)" onclick="btnSearch()">Buscar &raquo;</a></p>
+            </div>
+            <br />
+            <div class="row">
 
-        <h1>Rockola</h1>
-        <input type="text" class="form-control" id="txtkeywork" placeholder="Buscar" />
-        <p><a class="btn btn-default" href="javascript:void(0)" onclick="btnSearch()">Buscar &raquo;</a></p>
+                <div class="col-4" id="ListYoutube">
+
+                </div>
+
+
+
+                <div class="col-4 " id="VideoYoutube">
+
+                </div>
+
+
+                <div class="col-4" id="AddVideo">
+
+
+
+                </div>
+            </div>
+        </div>
     </div>
-    <br />
-    <div class="row">
-
-        <div class="col-4" id="ListYoutube">
-
-        </div>
-
-
-
-        <div class="col-4 " id="VideoYoutube">
-
-        </div>
-
-
-        <div class="col-4" id="AddVideo">
-
-
-
-        </div>
+    <div class="card-footer text-muted">
+        Softtek
     </div>
 </div>
-            <script>
+<script>
     function btnSearch()
     {
         $.ajax(
@@ -78,4 +83,4 @@
        );
     }
 
-            </script>
+</script>
